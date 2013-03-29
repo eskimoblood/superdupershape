@@ -88,6 +88,7 @@ define(['superDuperShape', 'scene', 'settings'], function(superDuperShape, scene
         fragmentShader: fShader.text
       });
 
+      shader.side = THREE.DoubleSide;
       var values = attributes.a_color.value;
 
       var length = this.geometry.vertices.length;
