@@ -1,0 +1,9 @@
+{
+  "name": "superdupershape",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "bower": "~0.7.1",
+    "grunt-bower-task": "~0.1.0"
+  }
+}

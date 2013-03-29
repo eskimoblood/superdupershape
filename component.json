@@ -1,0 +1,18 @@
+{
+  "name": "superdupershape",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "2.1.~"
+  },
+  "exportsOverride": {
+    "threejs": {
+      "js": "build/threejs.js"
+    },
+    "requirejs": {
+      "js": "require.js"
+    },
+    "datgui": {
+      "js": ["build/dat.gui.js", "build/dat.color.js"]
+    }
+  }
+}
