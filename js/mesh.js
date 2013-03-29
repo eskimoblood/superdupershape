@@ -77,8 +77,10 @@ define(['superDuperShape', 'scene', 'settings'], function(superDuperShape, scene
       };
 
 
-      var rainbow = new Rainbow();
-      rainbow.setSpectrum('ffffff', '594f4f', '547980', '45ada8', '9de0ad', 'e5fcc2');
+      var colors = new Rainbow();
+      colors.setSpectrum('ffffff', '594f4f', '547980', '45ada8', '9de0ad', 'e5fcc2');
+      var colorCount = 500;
+      colors.setNumberRange(0, colorCount);
       var vShader = document.getElementById('vertexshader');
       var fShader = document.getElementById('fragmentshader');
 
@@ -94,13 +96,15 @@ define(['superDuperShape', 'scene', 'settings'], function(superDuperShape, scene
       var length = this.geometry.vertices.length;
 
       for (var i = 0; i < length; i++) {
-
-        if (i % 10 < 5) {
-          var cl = Math.floor((Math.pow(i, 20) * Math.sin(i % 5)));
+//
+        var c = i / 15000;
+        if (i % 10 < 3) {
+          var cl = Math.sin(c + Math.cos(c)) * colorCount * Math.sin(c);
         } else {
-          var cl = Math.floor((Math.sin(i % (length / 40))*i ));
+          var cl = Math.sin(c % Math.sin(c)) * colorCount;
         }
-        values.push(new THREE.Color(parseInt(rainbow.colorAt((cl % 100) || 0), 16)));
+        cl = Math.abs(Math.floor(cl)) % colorCount;
+        values.push(new THREE.Color(parseInt(colors.colorAt(cl || 0), 16)));
       }
 
 
