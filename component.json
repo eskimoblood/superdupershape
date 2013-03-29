@@ -2,7 +2,8 @@
   "name": "superdupershape",
   "version": "0.0.1",
   "dependencies": {
-    "requirejs": "2.1.~"
+    "requirejs": "2.1.~",
+    "rainbob-vis": "https://github.com/anomal/RainbowVis-JS.git"
   },
   "exportsOverride": {
     "threejs": {
@@ -13,6 +14,9 @@
     },
     "datgui": {
       "js": ["build/dat.gui.js", "build/dat.color.js"]
+    },
+    "rainbob-vis": {
+      "js": "rainbowvis.js"
     }
   }
 }

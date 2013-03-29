@@ -76,7 +76,9 @@ define(['superDuperShape', 'scene'], function(superDuperShape, scene) {
         }
       };
 
-      var colors = [0x594F4F, 0x547980, 0x45ADA8, 0x9DE0AD, 0xE5FCC2];
+
+      var rainbow = new Rainbow();
+      rainbow.setSpectrum('ffffff', '594f4f', '547980', '45ada8', '9de0ad', 'e5fcc2');
       var vShader = document.getElementById('vertexshader');
       var fShader = document.getElementById('fragmentshader');
 
@@ -91,14 +93,13 @@ define(['superDuperShape', 'scene'], function(superDuperShape, scene) {
       var length = this.geometry.vertices.length;
 
       for (var i = 0; i < length; i++) {
+
         if (i % 10 < 5) {
-
-          var cl = Math.floor((Math.pow(i, 2) * Math.sin(i % 5))) % 5;
+          var cl = Math.floor((Math.pow(i, 20) * Math.sin(i % 5)));
         } else {
-          var cl = Math.floor((Math.sin(i % (length / 4)) * (i % 50) / (Math.cos(i / 2) * (i % ( 4))))) % 5;
-
+          var cl = Math.floor((Math.sin(i % (length / 40))*i ));
         }
-        values.push(new THREE.Color(colors[cl]));
+        values.push(new THREE.Color(parseInt(rainbow.colorAt((cl % 100) || 0), 16)));
       }
 
 
