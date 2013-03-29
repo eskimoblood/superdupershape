@@ -15,11 +15,9 @@
 </html>
 <script type="x-shader/x-vertex" id="vertexshader">
 
-  precision highp int;
-  precision highp float;
+  attribute vec3 a_color;
 
   varying vec3 cl;
-  attribute vec3 a_color;
   varying vec3 vNormal;
 
   void main() {
@@ -32,21 +30,17 @@
 </script>
 
 <script type="x-shader/x-fragment" id="fragmentshader">
-  precision highp int;
-  precision highp float;
+
   varying vec3 cl;
   varying vec3 vNormal;
+
   void main() {
   vec3 light = vec3(0.5,0.2,1.0);
 
-  // ensure it's normalized
   light = normalize(light);
 
-  // calculate the dot product of
-  // the light to the vertex normal
   float dProd = max(0.0, dot(abs(vNormal), light));
 
-  // feed into our frag colour
   gl_FragColor = vec4(cl*(dProd), 1.0);
   }
 </script>
@@ -59,7 +53,8 @@
 <script src="lib/js/threex/THREEx.WindowResize.js"></script>
 <script src="lib/js/threex/THREEx.FullScreen.js"></script>
 <script src="lib/js/threex/THREEx.screenshot.js"></script>
+<script src="lib/js/rainbob-vis/rainbowvis.js"></script>
 
-<script src="lib/js/requirejs/require.js"  data-main="js/bootstrap.js"></script>
+<script src="lib/js/requirejs/require.js" data-main="js/bootstrap.js"></script>
 
 

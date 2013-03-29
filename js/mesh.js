@@ -1,4 +1,4 @@
-define(['superDuperShape', 'scene'], function(superDuperShape, scene) {
+define(['superDuperShape', 'scene', 'settings'], function(superDuperShape, scene, globalSettings) {
   function meshObject(settings) {
     this.scene = new THREE.Object3D();
     this.createMeshObject(settings);
@@ -17,8 +17,8 @@ define(['superDuperShape', 'scene'], function(superDuperShape, scene) {
 
       this.geometry = new THREE.Geometry();
       this.geometry.dynamic = true;
-      var thetaSteps = 200;
-      var phiSteps = 200;
+      var thetaSteps = globalSettings.thetaSteps;
+      var phiSteps = globalSettings.phiSteps;
 
       this.geometry.vertices = superDuperShape({
         phiSteps: phiSteps,

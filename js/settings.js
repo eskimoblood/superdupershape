@@ -8,6 +8,8 @@ define(function() {
     aspect: WIDTH / HEIGHT,
     viewAngle: 45,
     near: .1,
-    far: 1000
+    far: 1000,
+    phiSteps: 200,
+    thetaSteps:200
   };
 });
