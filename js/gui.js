@@ -2,14 +2,14 @@ define(function() {
 
 
   var settings = {
-    t1: {min: -1, max: 1},
-    d1: {min: -1, max: 1},
+    t1: {min: -2, max: 2},
+    d1: {min: -2, max: 2},
     m1: {min: 0, max: 20},
     n11: {min: 0, max: 100},
     n12: {min: 0, max: 100},
     n13: {min: 0, max: 100},
-    t2: {min: -1, max: 1},
-    d2: {min: -1, max: 1},
+    t2: {min: -2, max: 2},
+    d2: {min: -2, max: 2},
     n21: {min: 0, max: 100},
     n22: {min: 0, max: 100},
     n23: {min: 0, max: 100},
@@ -43,11 +43,11 @@ define(function() {
 
   var gui = new dat.GUI();
 
-  var f1 = gui.addFolder('First Form');
+//  var f1 = gui.addFolder('First Form');
 
   for (var i in settings) {
     var s = settings[i];
-    f1.add(controls, i, s.min, s.max).listen().onChange(update);
+    gui.add(controls, i, s.min, s.max).listen().onChange(update);
   }
 
   var listeners = [];
